@@ -1,0 +1,13 @@
+{% extends 'pizzas/base.html' %}
+{% block content %}
+	<p>披萨名称:{{pizza}}</p>
+	<ul>
+		{% for topping in toppings %}
+			<li>
+				{{topping}}
+			</li>
+		{%empty%}
+			<li>该披萨还没有添加配料表</li>
+		{% endfor %}
+	</ul>
+{% endblock content %}

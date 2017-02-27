@@ -1,0 +1,11 @@
+{% extends 'pizzas/base.html' %}
+{% block content %}
+	<p>披萨店的披萨</p>
+	<ul>
+		{% for pizza in pizzas %}
+			<li><a href="{% url 'pizzas:pizza' pizza.id %}">{{pizza}}</a><li>
+		{% empty %}
+			<li>该店还没有推出披萨</li>
+		{% endfor %}
+	</ul>
+{% endblock content %}

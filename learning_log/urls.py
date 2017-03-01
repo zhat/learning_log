@@ -20,5 +20,7 @@ urlpatterns = [
     url(r'^blog/',include('blog.urls',namespace='blog')),
     url(r'^pizzas/',include('pizzas.urls',namespace='pizzas')),
     url(r'^meal_plans/',include('meal_plans.urls',namespace='meal_plans')),
+    url(r'^blogs/',include('blogs.urls',namespace='blogs')),
+    url(r'^users/',include('users.urls',namespace='users')),
 
 ]

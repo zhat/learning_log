@@ -1,9 +1,15 @@
 {% extends "blog/base.html" %}
+{% block header %}
+	<h2>主题</h2>
+{% endblock header %}
 {% block content %}
-<p>Topics</p>
 <ul>
 	{% for topic in topics %}
-		<li><a href="{% url 'blog:topic' topic.id %}">{{topic}}</li>
+		<li>
+		<h3>
+		<a href="{% url 'blog:topic' topic.id %}">{{topic}}</a>
+		</h3>
+		</li>
 	{% empty %}
 		<li>No topics have been added yet.</li>
 	{% endfor %}

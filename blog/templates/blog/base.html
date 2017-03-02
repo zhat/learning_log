@@ -1,14 +1,54 @@
-<p>
-	<a href="{% url 'blog:index' %}">首页</a>
-	<a href="{% url 'blog:topics' %}">主题</a>
-	{% if user.is_authenticated %}
-		欢迎您,{{ user.username }}.
-		<a href="{% url 'users:logout'%}">注销</a>
-	{% else %}
-		<a href="{% url 'users:login' %}">登录</a>
-		<a href="{% url 'users:register'%}">注册</a>
-	{% endif %}
-</p>
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-{% block content %}{% endblock content %}
+	<title>学习笔记</title>
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
+</head>
+<body>
+	<!-- Static navbar -->
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" 
+					aria-expanded="false" aria-controls="navbar">
+				</button>
+				<a class="navbar-brand" href="{% url 'blog:index' %}">
+				首页</a>
+			</div>
 
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'blog:topics' %}">主题</a></li>
+					<li><a href="{% url 'blogs:index' %}">博客首页</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					{% if user.is_authenticated %}
+						<li><a>您好！{{ user.username }}</a></li>
+						<li><a href="{% url 'users:logout' %}">注销</a></li>
+					{% else %}
+						<li><a href="{% url 'users:register' %}">注册</a></li>
+						<li><a href="{% url 'users:login' %}">登录</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container">
+		<div class="page-header">
+			{% block header %}{% endblock header %}
+		</div>
+		<div>
+			{% block content %}{% endblock content %}
+		</div>
+	</div>
+</body>
+</html>

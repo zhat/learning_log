@@ -1,5 +1,14 @@
 {% extends "blog/base.html" %}
+{% block header %}
+	<div class='jumbotron'>
+		<h1>学习笔记</h1>
+	</div>
+{% endblock header %}
 {% block content %}
-<p>learning log</p>
-<p>Learning log help you keep track of your learning, for any topic you're learn about </p>
+	<h2>
+	<a href="{% url 'users:register' %}">注册一个账户</a>写学习日志，记录你的学习内容
+	</h2>
+	<h2>
+		无论什么时候你学习了一些新的内容，都可以来这里记录下来
+	</h2>
 {% endblock content %}

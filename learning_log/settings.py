@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'meal_plans',
     'blogs',
     'users',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,7 @@ LOGIN_URL='/users/login/'
 BOOTSTRAP3={
     'include_jquery':True,
     }
+
+MEDIA_URL="/media/"
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+CKEDITOR_UPLOAD_PATH="article_images"

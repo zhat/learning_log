@@ -1,9 +1,8 @@
 {% extends "blog/base.html" %}
 {% load bootstrap3 %}
 {% block header %}
-<h2>博客网首页</h2>
+<h2>个人主页</h2>
 {% endblock header %}
 {% block content %}
-
-<p>这是博客网站首页</p>
+<h5>个人主页{{user.username}}{{user.email}}</5>
 {% endblock content %}

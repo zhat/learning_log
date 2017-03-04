@@ -27,11 +27,12 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{% url 'blog:topics' %}">主题</a></li>
 					<li><a href="{% url 'blogs:index' %}">博客首页</a></li>
+					<li><a href="{% url 'blogs:blogs' %}">博客列表</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					{% if user.is_authenticated %}
-						<li><a>您好！{{ user.username }}</a></li>
+						<li><a href="{% url 'blog:homepage' %}">{{ user.username }}</a></li>
 						<li><a href="{% url 'users:logout' %}">注销</a></li>
 					{% else %}
 						<li><a href="{% url 'users:register' %}">注册</a></li>

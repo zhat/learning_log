@@ -1,6 +1,8 @@
-{% extends "blogs/base.html" %}
-{% block content %}
+{% extends "blog/base.html" %}
+{% block header %}
         <p>{{ blog.title }}</p>
+{% endblock header %}
+{% block content %}
         <p>{{ blog.date_added | date:'M d,Y H:i' }}<p>
         <p>{{ blog.text }}</p>
     <a href="{% url 'blogs:edit_blog' blog.id %}">修改博客内容</a>

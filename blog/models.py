@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Topic(models.Model):
@@ -18,7 +19,7 @@ class Topic(models.Model):
 class Entry(models.Model):
     '''学到的有关某个主题的具体知识'''
     topic=models.ForeignKey(Topic,verbose_name='主题')
-    text=models.TextField('内容')
+    text=RichTextField('内容')
     date_added=models.DateTimeField('添加时间',auto_now_add=True)
 
     class Meta:

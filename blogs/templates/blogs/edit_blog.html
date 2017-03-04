@@ -1,9 +1,14 @@
-{% extends "blogs/base.html" %}
+{% extends "blog/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+	<h2>修改博客内容</h2>
+{% endblock header %}
 {% block content %}
-	<p>Edit entry:</p>
-	<form action="{% url 'blogs:edit_blog' blog.id %}" method='post'>
+	<form action="{% url 'blogs:edit_blog' blog.id %}" method='post' class="form">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<button name="submit">修改博客</button>
+		{% bootstrap_form form %}
+		{% buttons %}
+		<button name="submit" class="btn btn-primary">修改博客</button>
+		{% endbuttons %}
 	</form>
 {% endblock content %}

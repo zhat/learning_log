@@ -88,3 +88,9 @@ def edit_entry(request,entry_id):
             return HttpResponseRedirect(reverse('blog:topic',args=[topic.id]))
     context={'entry':entry,'topic':topic,'form':form}
     return render(request,'blog/edit_entry.html',context)
+
+@login_required
+def homepage(request):
+    user=request.user
+    context={}
+    return render(request,'blog/homepage.html',context)
